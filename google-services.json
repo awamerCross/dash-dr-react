@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "268630355509",
+    "project_id": "dash-dr",
+    "storage_bucket": "dash-dr.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:268630355509:android:03fe303bf1e6c2263c0b7c",
+        "android_client_info": {
+          "package_name": "shabaka.Awmer.DashboardDrTawsel"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "268630355509-oudhs7p9qtnr1fd8mkgmv52i88sp4tlc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC1ekClgNA2-CgfE8NKB_zqk_S2tXH_8KU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "268630355509-oudhs7p9qtnr1fd8mkgmv52i88sp4tlc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
