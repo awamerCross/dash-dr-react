@@ -115,7 +115,7 @@ function EditProfile({ navigation }) {
 
         if (!val) {
             setSpinner(true)
-            dispatch(UpdateProfile(token, lang, nameEN, phone, email, base64, navigation)).then(() => setSpinner(false))
+            dispatch(UpdateProfile(token, lang, nameEN, phone, email, base64, navigation, user.id)).then(() => setSpinner(false))
 
         }
         else {
@@ -155,7 +155,7 @@ function EditProfile({ navigation }) {
                     </TouchableOpacity>
                 </ImageBackground>
 
-                <View style={styles.ScrolContainer}>
+                <ScrollView style={styles.ScrolContainer}>
 
                     <Text style={styles.MainText}>{i18n.t('edit') + " " + i18n.t('myProfile')}</Text>
 
@@ -167,10 +167,7 @@ function EditProfile({ navigation }) {
                             placeholder={i18n.t('name')}
                             onChangeText={(e) => setNameEN(e)}
                             value={nameEN}
-                            styleCont={{ marginTop: 0 }}
-                            inputStyle={{ paddingTop: Platform.OS == 'ios' ? 20 : 0 }}
-                            multiline={true}
-                            numberOfLines={1}
+                            styleCont={{ marginTop: 20 }}
 
                         />
 
@@ -180,11 +177,9 @@ function EditProfile({ navigation }) {
                             placeholder={i18n.t('email')}
                             onChangeText={(e) => setemail(e)}
                             value={email}
-                            multiline={true}
-                            inputStyle={{ paddingTop: Platform.OS == 'ios' ? 20 : 0 }}
-                            numberOfLines={1}
+
                             keyboardType='email-address'
-                            styleCont={{ marginTop: 0 }}
+                            styleCont={{ marginTop: 20 }}
                         />
 
                         <InputIcon
@@ -192,11 +187,8 @@ function EditProfile({ navigation }) {
                             placeholder={i18n.t('phone')}
                             onChangeText={(e) => setPhone(e)}
                             value={phone}
-                            multiline={true}
-                            numberOfLines={1}
-                            inputStyle={{ paddingTop: Platform.OS == 'ios' ? 20 : 0 }}
                             keyboardType='numeric'
-                            styleCont={{ marginTop: 0 }}
+                            styleCont={{ marginTop: 20 }}
                         />
 
 
@@ -207,7 +199,7 @@ function EditProfile({ navigation }) {
 
                     </View>
 
-                </View>
+                </ScrollView>
             </ScrollView>
         </KeyboardAvoidingView>
 
@@ -245,7 +237,8 @@ const styles = StyleSheet.create({
     ScrolContainer: {
         width: '100%',
         backgroundColor: Colors.bg,
-        bottom: 0, height: 350,
+        bottom: 0,
+        height: 400,
         borderTopLeftRadius: 30,
         borderTopRightRadius: 30,
     },
@@ -258,9 +251,7 @@ const styles = StyleSheet.create({
     },
     LoginBtn: {
         borderRadius: 15,
-        marginHorizontal: 20,
-        width: '90%',
-        marginTop: 0
+        marginTop: 20,
 
     }
 })

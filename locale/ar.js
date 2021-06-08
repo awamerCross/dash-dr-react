@@ -315,7 +315,8 @@ const ar = {
   entercostGod: 'الرجاء ادخال تكلفه البضائع',
   Deliveryprice: 'سعر التوصيل',
   categoryValue: 'قيمه الاصناف',
-
+  noAvailable: 'غير متاح',
+  Available: 'متاح',
   deliveryDetailes: 'تفاصيل التسليم',
   chooseLange: 'اختيار اللغة',
   language: "اللغة",

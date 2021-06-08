@@ -74,7 +74,7 @@ function Report({ navigation }) {
                                     <View style={{ margin: 20, marginTop: 50 }}>
                                         <Text style={{ fontFamily: 'flatMedium', fontSize: 14, textAlign: 'center', }}>{i18n.t('DoneReb')} </Text>
 
-                                        <BTN title={i18n.t('backHome')} ContainerStyle={{ borderRadius: 5 }} onPress={CreateReborts} />
+                                        <BTN title={i18n.t('backHome')} ContainerStyle={{ borderRadius: 5, marginTop: 40 }} onPress={CreateReborts} />
                                     </View>
                                 </View>
                             </View>

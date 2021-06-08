@@ -94,7 +94,7 @@ const ProductDet = ({ navigation, route }) => {
                                     <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginTop: 20 }}>
                                         <Text style={styles.num}> {i18n.t('available')}</Text>
                                         <View >
-                                            <Image source={ProductDetA.available == 0 ? require('../../../assets/Images/off_notifcatiom.png') : require('../../../assets/Images/on_notifcatiom.png')} style={styles.BImg} resizeMode='contain' />
+                                            <Image source={ProductDetA.available == 0 ? i18n.t('noAvailable') : i18n.t('Available')} style={styles.BImg} resizeMode='contain' />
                                         </View>
                                     </View>
 

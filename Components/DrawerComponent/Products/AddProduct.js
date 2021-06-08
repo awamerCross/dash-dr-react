@@ -319,13 +319,13 @@ function AddProduct({ navigation }) {
                         placeholder={i18n.t('prodnameEn')}
                         onChangeText={(e) => setNameEN(e)}
                         value={nameEN}
-                        styleCont={{ marginTop: 0 }}
+                        styleCont={{ marginTop: 20 }}
 
 
                     />
 
-                    <Text style={{ marginStart: 20, fontFamily: 'flatMedium', fontSize: 16, alignSelf: 'flex-start' }}>{i18n.t('addSize')}</Text>
-                    <View style={{ alignItems: 'center', marginTop: 10, borderWidth: 1, height: 50, marginHorizontal: "5%", borderColor: '#E0E0E0', borderRadius: 5, flexDirection: 'row' }}>
+                    <Text style={{ marginTop: 20, marginStart: '5%', fontFamily: 'flatMedium', fontSize: 14, alignSelf: 'flex-start' }}>{i18n.t('addSize')}</Text>
+                    <View style={{ alignItems: 'center', justifyContent: 'center', marginTop: 10, borderWidth: 1, height: 50, marginHorizontal: "5%", borderColor: '#E0E0E0', borderRadius: 5, flexDirection: 'row' }}>
 
                         {
                             Sizes.map((size, index) => {
@@ -409,7 +409,7 @@ function AddProduct({ navigation }) {
 
 
                     <InputIcon
-                        styleCont={{ marginTop: 0 }}
+                        styleCont={{ marginTop: 20 }}
                         label={i18n.t('discount')}
                         placeholder={i18n.t('discount')}
 
@@ -421,7 +421,7 @@ function AddProduct({ navigation }) {
 
 
                     <InputIcon
-                        styleCont={{ marginTop: 0 }}
+                        styleCont={{ marginTop: 20 }}
                         label={i18n.t('Availablekilos')}
                         placeholder={i18n.t('Availablekilos')}
                         keyboardType='numeric'
@@ -432,7 +432,7 @@ function AddProduct({ navigation }) {
                     />
 
                     <InputIcon
-                        styleCont={{ marginTop: 0 }}
+                        styleCont={{ marginTop: 20 }}
                         label={i18n.t('quantity')}
                         placeholder={i18n.t('quantity')}
                         keyboardType='numeric'
@@ -441,8 +441,8 @@ function AddProduct({ navigation }) {
 
                     />
 
-                    <View style={{ height: width * .14, marginHorizontal: '4%', borderColor: Colors.InputColor, borderWidth: .9, borderRadius: 5, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingHorizontal: 15 }}>
-                        <View style={{}}>
+                    <View style={{ marginHorizontal: '5%', borderColor: Colors.InputColor, borderWidth: .9, borderRadius: 5, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: 15, marginTop: 20 }}>
+                        <View >
                             <Text style={{ color: Colors.fontNormal, fontFamily: 'flatMedium', }}>{i18n.t('available')}</Text>
                         </View>
                         <View style={{ flexDirection: 'row' }}>
@@ -487,7 +487,7 @@ function AddProduct({ navigation }) {
 
 
 
-                    <TouchableOpacity onPress={_pickImage} style={{ height: width * .14, flexDirection: 'row', overflow: 'hidden', marginHorizontal: "4%", borderWidth: 1, borderColor: Colors.InputColor, borderRadius: 5, alignItems: 'center', justifyContent: 'space-between', paddingEnd: 20, marginTop: 15, }}>
+                    <TouchableOpacity onPress={_pickImage} style={{ flexDirection: 'row', overflow: 'hidden', marginHorizontal: "5%", borderWidth: 1, borderColor: Colors.InputColor, borderRadius: 5, alignItems: 'center', justifyContent: 'space-between', paddingEnd: 20, marginTop: 20, padding: 15 }}>
                         {
                             userImage ?
                                 <Text style={{ color: Colors.InputColor, fontFamily: 'flatMedium', fontSize: 12, marginStart: 10 }} numberOfLines={1}>{userImage}</Text>
@@ -501,27 +501,26 @@ function AddProduct({ navigation }) {
 
 
 
-                    <View style={{ borderWidth: 1, borderRadius: 5, backgroundColor: Colors.bg, alignItems: 'center', justifyContent: 'center', height: width * .15, marginTop: 15, borderColor: Colors.InputColor, marginHorizontal: '4%' }}>
-                        <Dropdown
-                            placeholder={i18n.t('menue')}
-                            data={MenueData}
-                            pickerStyle={{ marginTop: 75, margin: 5, flex: 1 }}
+                    <Dropdown
+                        placeholder={i18n.t('menue')}
+                        data={MenueData}
+                        pickerStyle={{ marginTop: 75, margin: 5, flex: 1 }}
 
-                            fontSize={16}
-                            itemTextStyle={{ fontFamily: 'flatMedium' }}
-                            lineWidth={0}
-                            containerStyle={{ width: '95%', paddingHorizontal: 5, bottom: 10, }}
-                            animationDuration={0}
-                            onChangeText={val => setMenue(val)}
+                        fontSize={16}
+                        itemTextStyle={{ fontFamily: 'flatMedium' }}
+                        lineWidth={0}
+                        containerStyle={{ justifyContent: 'center', marginHorizontal: '5%', borderWidth: 1, borderColor: '#E0E0E0', paddingHorizontal: 10, height: 60, borderRadius: 5, paddingBottom: 15, marginTop: 20 }}
+                        animationDuration={0}
+                        onChangeText={val => setMenue(val)}
 
-                            value={MenueName.label}
-                        />
-                    </View>
+                        value={MenueName.label}
+                    />
+
+
                     <InputIcon
 
 
-                        placeholder={i18n.t('prodDetAr')}
-                        styleCont={{ height: width * .35, marginHorizontal: '5%', marginTop: 20 }}
+                        styleCont={{ height: 150, marginHorizontal: '5%', marginTop: 20 }}
                         label={i18n.t('prodDetAr')}
                         placeholder={i18n.t('prodDetAr')}
                         multiline={true}
@@ -529,21 +528,25 @@ function AddProduct({ navigation }) {
                         inputStyle={{ paddingTop: Platform.OS === 'ios' ? 20 : 0, }}
                         onChangeText={(e) => setDetailesAr(e)}
                         value={detailesAr}
-                        LabelStyle={{ bottom: width * .32 }}
                     />
 
 
+
+                    {/* <Textarea
+                        onChangeText={(e) => setDetailesAr(e)}
+                        value={detailesAr}
+                        style={{ borderWidth: 1, borderColor: Colors.InputColor, marginHorizontal: '5%', marginTop: 10, height: 150, fontFamily: 'flatMedium', fontSize: 12, color: Colors.fontNormal, padding: 10, textAlign: I18nManager.isRTL ? "right" : "left", }} placeholder={i18n.t('prodDetAr')} /> */}
+
+
                     <InputIcon
-                        styleCont={{ height: width * .35, marginHorizontal: '5%', marginTop: 0 }}
+                        styleCont={{ height: 150, marginHorizontal: '5%', marginTop: 20 }}
                         label={i18n.t('prodDetEn')}
                         placeholder={i18n.t('prodDetEn')}
                         multiline={true}
                         numberOfLines={10}
                         inputStyle={{ paddingTop: Platform.OS === 'ios' ? 25 : 0, }}
-
                         onChangeText={(e) => setDetailesEn(e)}
                         value={detailesEn}
-                        LabelStyle={{ fontSize: 14, bottom: width * .32, }}
                     />
 
 
@@ -551,7 +554,7 @@ function AddProduct({ navigation }) {
                         ExtraProduct.map((proExtra, index) =>
                             (
                                 < View key={index.toString()}>
-                                    <View style={{ backgroundColor: '#F7F7F7', width: '90%', justifyContent: 'space-between', alignItems: 'center', height: 50, marginHorizontal: '5%', flexDirection: 'row' }} >
+                                    <View style={{ backgroundColor: '#F7F7F7', width: '90%', justifyContent: 'space-between', alignItems: 'center', height: 50, marginHorizontal: '5%', flexDirection: 'row', marginTop: 20 }} >
                                         <View style={{ flexDirection: 'row', paddingStart: 10 }}>
                                             <Text style={{ fontFamily: 'flatMedium', color: Colors.inputTextMainColor }}>{proExtra.name_ar.length > 15 ? (proExtra.name_ar).substr(0, 15) + '...' : proExtra.name_ar} - </Text>
                                             <Text style={{ paddingHorizontal: 10, fontFamily: 'flatMedium', color: Colors.inputTextMainColor }}>{proExtra.name_en.length > 15 ? (proExtra.name_en).substr(0, 15) + '...' : proExtra.name_en}</Text>
@@ -597,7 +600,7 @@ function AddProduct({ navigation }) {
                                             />
                                             <InputIcon
 
-                                                styleCont={{ marginTop: 0 }}
+                                                styleCont={{ marginTop: 20 }}
                                                 label={i18n.t('ExtarPrdoctEn')}
                                                 placeholder={i18n.t('ExtarPrdoctEn')}
                                                 onChangeText={(e) => setProductnameExtraEn(e)}
@@ -606,7 +609,7 @@ function AddProduct({ navigation }) {
                                             />
 
                                             <InputIcon
-                                                styleCont={{ marginTop: 0 }}
+                                                styleCont={{ marginTop: 20 }}
                                                 label={i18n.t('price')}
                                                 placeholder={i18n.t('price')}
                                                 keyboardType='numeric'
@@ -635,7 +638,7 @@ const styles = StyleSheet.create({
     sText: {
         fontFamily: 'flatMedium',
         color: Colors.fontBold,
-        fontSize: width * .036,
+        fontSize: 12,
         left: 20
     },
     Text: {
@@ -651,11 +654,8 @@ const styles = StyleSheet.create({
     },
     LoginBtn: {
         borderRadius: 5,
-        marginTop: 0,
-        marginHorizontal: '5%',
-        width: '90%',
-        marginVertical: 5,
-        marginBottom: 5
+        marginTop: 20,
+
 
     },
     Img: {

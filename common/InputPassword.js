@@ -3,7 +3,6 @@ import { View, StyleSheet, TextInput, I18nManager, Image, Dimensions, Text, Touc
 import Colors from "../consts/Colors";
 
 
-const { width } = Dimensions.get('window')
 
 const InputPassword = ({
     KeyboardStyle,
@@ -30,7 +29,7 @@ const InputPassword = ({
             <Text style={[styles.labelText,
             {
                 color: focused || value ? Colors.sky : Colors.fontNormal, paddingHorizontal: 10, fontSize: 13,
-                bottom: focused || value ? width * .13 : null
+                bottom: focused || value ? 45 : null
             }, LabelStyle
             ]}  >
                 {label}
@@ -60,18 +59,17 @@ export { InputPassword };
 const styles = StyleSheet.create({
 
     containerTableTextOverInput: {
-        height: width * .15,
         position: "relative",
         marginHorizontal: "5%",
-        marginVertical: 10,
         justifyContent: 'center',
+        marginTop: 20,
 
     },
     labelText: {
         left: 10,
         backgroundColor: Colors.bg,
         alignSelf: "flex-start",
-        fontSize: width * .03,
+        fontSize: 12,
         zIndex: 10,
         position: "absolute",
         fontFamily: 'flatMedium',
@@ -89,12 +87,13 @@ const styles = StyleSheet.create({
         textAlign: I18nManager.isRTL ? "right" : "left",
         fontFamily: "flatMedium",
         fontSize: 13,
+        padding: 15
     },
     image: {
-        width: width * 0.04,
-        maxWidth: width * 0.12,
-        height: width * 0.06,
-        maxHeight: width * 0.12,
+        width: 25,
+        maxWidth: 35,
+        height: 25,
+        maxHeight: 35,
         resizeMode: "contain",
         alignSelf: 'center'
 

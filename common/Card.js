@@ -51,22 +51,21 @@ function Card({ navigation }) {
     return (
 
 
-        <Animatable.View animation="lightSpeedIn" easing="ease-out" delay={500} style={{ justifyContent: 'center', alignItems: 'center' }}>
+        <Animatable.View animation="lightSpeedIn" easing="ease-out" delay={500} style={{ alignItems: 'center', flex: 1 }}>
             <FlatList
                 horizontal
                 pagingEnabled={true}
                 showsHorizontalScrollIndicator={false}
                 data={Orderdata}
+                style={{ marginTop: 20 }}
                 keyExtractor={(item) => item.id}
                 renderItem={(item) => (
                     <View style={{
-                        height: width * .3,
-                        width: width * .29,
                         marginStart: 5,
                         borderRadius: 25,
                         borderTopStartRadius: 0,
-                        flex: 1,
-                        overflow: 'hidden'
+                        overflow: 'hidden',
+
                     }}>
                         <LinearGradient
                             colors={item.item.color}
@@ -91,12 +90,14 @@ function Card({ navigation }) {
 const styles = StyleSheet.create({
     Text: {
         fontFamily: 'flatMedium',
-        fontSize: width * .028,
+        fontSize: 12,
         color: Colors.bg,
         textAlign: 'center'
     },
     Linear: {
-        flex: 1,
+        padding: 10,
+        paddingVertical: 30,
+
     },
 })
 export default Card

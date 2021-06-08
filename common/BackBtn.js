@@ -30,12 +30,12 @@ const styles = StyleSheet.create({
         overflow: 'hidden'
     },
     BGImage: {
-        width: width * .25,
-        height: width * .5,
+        width: 100,
+        height: 140,
     },
     Btn: {
         position: 'absolute',
-        marginTop: width * .25,
+        marginTop: 70,
     },
     arrow: {
         width: 30,

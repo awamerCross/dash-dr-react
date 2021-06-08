@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { View, StyleSheet, Text, ActivityIndicator, } from 'react-native'
+import { View, StyleSheet, Text, ActivityIndicator, ScrollView, } from 'react-native'
 
 
 import { InputIcon } from '../../common/InputText'
@@ -64,7 +64,7 @@ function NewPassword({ navigation, route }) {
     }
     return (
 
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
 
             <BackBtn navigation={navigation} />
             <View style={{ marginHorizontal: 20, }}>
@@ -81,7 +81,7 @@ function NewPassword({ navigation, route }) {
                 secureTextEntry={!showPass}
                 image={require('../../assets/Images/view.png')}
                 onPress={() => setShowPass(!showPass)}
-                styleCont={{ marginTop: 0 }}
+                styleCont={{ marginTop: 20 }}
             />
             <InputPassword
                 label={i18n.t('confirmPass')}
@@ -90,12 +90,12 @@ function NewPassword({ navigation, route }) {
                 secureTextEntry={!showPass2}
                 image={require('../../assets/Images/view.png')}
                 onPress={() => setShowPass2(!showPass2)}
-                styleCont={{ marginTop: 0 }}
+                styleCont={{ marginTop: 20 }}
             />
             <Loading loading={spinner} >
                 <BTN title={i18n.t('save')} ContainerStyle={styles.LoginBtn} onPress={SubmitLoginHandler} />
             </Loading>
-        </View>
+        </ScrollView>
 
 
 
@@ -128,10 +128,8 @@ const styles = StyleSheet.create({
         marginTop: '10%'
     },
     LoginBtn: {
-        marginVertical: 5,
         borderRadius: 5,
-        marginHorizontal: 20,
-        width: '90%',
+
     }
 })
 export default NewPassword

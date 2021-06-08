@@ -46,10 +46,7 @@ const InputIcon = ({
 
                 {...props}
             />
-            <TouchableOpacity onPress={onPress} style={{
-                left: width * .8,
-                bottom: width * .09
-            }}>
+            <TouchableOpacity onPress={onPress} style={{ position: 'absolute', alignSelf: 'flex-end', marginTop: 20, right: 20 }}>
                 <Image source={image} style={[styles.image, imgStyle]} />
 
             </TouchableOpacity>
@@ -63,20 +60,19 @@ export { InputIcon };
 const styles = StyleSheet.create({
 
     containerTableTextOverInput: {
-        height: width * .2,
         position: "relative",
         marginHorizontal: "5%",
-        marginTop: 30
+        marginTop: 20,
 
     },
     labelText: {
         left: 20,
+        top: -8,
         backgroundColor: Colors.bg,
         alignSelf: "flex-start",
-        fontSize: width * .03,
+        fontSize: 12,
         zIndex: 10,
         position: "absolute",
-        bottom: width * .175,
         fontFamily: 'flatMedium',
         color: Colors.fontNormal,
 
@@ -96,13 +92,15 @@ const styles = StyleSheet.create({
         textAlign: I18nManager.isRTL ? "right" : "left",
         fontFamily: "flatMedium",
         fontSize: 13,
+        padding: 15
+
         // paddingTop: Platform.OS == 'ios' ? 15 : 0
     },
     image: {
-        width: width * 0.04,
-        maxWidth: width * 0.12,
-        height: width * 0.06,
-        maxHeight: width * 0.12,
+        width: 20,
+        maxWidth: 30,
+        height: 25,
+        maxHeight: 35,
         resizeMode: "contain",
 
     },

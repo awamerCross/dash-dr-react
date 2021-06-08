@@ -23,13 +23,12 @@ function BTN({
 const styles = StyleSheet.create({
     container: {
         backgroundColor: Colors.sky,
-        width: '85%',
-        marginHorizontal: 30,
-        height: 55,
+        marginHorizontal: '5%',
         marginTop: 30,
         alignItems: 'center',
         justifyContent: 'center',
-        borderRadius: 5
+        borderRadius: 5,
+        padding: 15,
     },
     sText: {
         fontFamily: 'flatMedium',

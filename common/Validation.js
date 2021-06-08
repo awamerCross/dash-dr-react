@@ -13,7 +13,7 @@ export const validateTwoPasswords = (password, confirmPassword) => {
 };
 
 export const ValdiateActivationCode = (code) => {
-    return code === '' ? i18n.t('codeErre') : code != 1122 ? i18n.t('codeErre') : null
+    return code === '' ? i18n.t('codeErre') : null
 }
 
 export const validateCode = (code) =>

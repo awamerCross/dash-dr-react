@@ -228,40 +228,26 @@ function RestaurantInfo({ navigation }) {
                         placeholder={i18n.t('ResNameEn')}
                         onChangeText={(e) => setNameEN(e)}
                         value={nameEN}
-                        styleCont={{ marginTop: 0 }}
+                        styleCont={{ marginTop: 20 }}
                     />
 
-                    <View style={{ borderWidth: .6, borderRadius: 5, backgroundColor: Colors.bg, alignItems: 'center', justifyContent: 'center', height: width * .14, borderColor: Colors.InputColor, marginHorizontal: '5%', }}>
-                        <Dropdown
-                            placeholder={i18n.t('city')}
-                            data={cityName}
-                            fontSize={12}
-                            itemTextStyle={{ fontFamily: 'flatMedium' }}
-                            lineWidth={0}
-                            containerStyle={{ width: '90%', paddingHorizontal: 5, bottom: 10 }}
-                            animationDuration={0}
-                            onChangeText={val => setCity2(val)}
+                    <Dropdown
+                        placeholder={i18n.t('city')}
+                        data={cityName}
+                        fontSize={12}
+                        itemTextStyle={{ fontFamily: 'flatMedium' }}
+                        lineWidth={0}
+                        containerStyle={{ justifyContent: 'center', marginHorizontal: '5%', borderWidth: 1, borderColor: '#E0E0E0', paddingHorizontal: 10, height: 60, borderRadius: 5, paddingBottom: 15, marginTop: 20 }}
+                        animationDuration={0}
+                        onChangeText={val => setCity2(val)}
 
-                            value={user.provider.city}
-                        />
-                    </View>
-                    {/* <TouchableOpacity onPress={InitMap ? () => setisopened(true) : setisopened(false)}>
-                        <InputIcon
-                            label={i18n.t('city')}
-                            placeholder={i18n.t('city')}
-                            // onChangeText={(e) => setCity(e)}
-                            value={city}
-                            editable={false}
-                            styleCont={{ marginTop: 20 }}
-                            image={require('../../../assets/Images/location_gray.png')}
-                            onPress={InitMap ? () => setisopened(true) : setisopened(false)}
-                        />
-                    </TouchableOpacity> */}
+                        value={user.provider.city}
+                    />
 
 
 
 
-                    <TouchableOpacity onPress={InitMap ? () => setisopened(true) : () => setisopened(false)} style={{ height: width * .14, flexDirection: 'row', overflow: 'hidden', marginHorizontal: "5%", borderWidth: 1, borderColor: Colors.InputColor, borderRadius: 5, alignItems: 'center', justifyContent: 'space-between', paddingEnd: 20, marginTop: 20 }}>
+                    <TouchableOpacity onPress={InitMap ? () => setisopened(true) : () => setisopened(false)} style={{ flexDirection: 'row', overflow: 'hidden', marginHorizontal: "5%", borderWidth: 1, borderColor: Colors.InputColor, borderRadius: 5, alignItems: 'center', justifyContent: 'space-between', paddingEnd: 20, marginTop: 20, padding: 20 }}>
                         <Text style={{ color: Colors.InputColor, fontFamily: 'flatMedium', fontSize: 12, marginStart: 5 }}>{city}</Text>
                         <Image source={require('../../../assets/Images/location_gray.png')} style={{ width: 15, height: 15 }} resizeMode='contain' />
                     </TouchableOpacity>
@@ -324,7 +310,6 @@ function RestaurantInfo({ navigation }) {
                     <InputIcon
                         label={i18n.t('webUrl')}
                         placeholder={i18n.t('Url')}
-
                         dataDetectorTypes={'link'}
                         multiline={true}
                         onChangeText={(e) => setWebUrl(e)}
@@ -339,7 +324,7 @@ function RestaurantInfo({ navigation }) {
 
                         onChangeText={(e) => setCommercialRegister(e)}
                         value={CommercialRegister}
-                        styleCont={{ marginTop: 0 }}
+                        styleCont={{ marginTop: 20 }}
 
                     />
                     <InputIcon
@@ -350,10 +335,10 @@ function RestaurantInfo({ navigation }) {
 
                         onChangeText={(e) => setBranchNum(e)}
                         value={BranchNum}
-                        styleCont={{ marginTop: 0 }}
+                        styleCont={{ marginTop: 20 }}
 
                     />
-                    <Text style={{ fontFamily: 'flatMedium', color: Colors.IconBlack, marginHorizontal: '5%', alignSelf: 'flex-start' }}>{i18n.t('preparationTime')}</Text>
+                    <Text style={{ fontFamily: 'flatMedium', color: Colors.IconBlack, marginHorizontal: '5%', alignSelf: 'flex-start', marginTop: 20 }}>{i18n.t('preparationTime')}</Text>
 
                     <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                         <InputIcon
@@ -379,7 +364,7 @@ function RestaurantInfo({ navigation }) {
                     </View>
 
 
-                    <View style={{ height: width * .14, marginHorizontal: '5%', borderColor: Colors.InputColor, borderWidth: .9, borderRadius: 5, flexDirection: 'row', alignItems: 'center', }}>
+                    <View style={{ marginHorizontal: '5%', borderColor: Colors.InputColor, borderWidth: .9, borderRadius: 5, flexDirection: 'row', alignItems: 'center', padding: 15, marginTop: 20 }}>
                         <View style={{ flex: .75, paddingStart: 10 }}>
                             <Text style={{ color: Colors.inputTextMainColor, fontFamily: 'flatMedium', alignSelf: 'flex-start' }}>{i18n.t('owner')}</Text>
                         </View>
@@ -424,7 +409,7 @@ function RestaurantInfo({ navigation }) {
 
 
 
-                    <View style={{ height: width * .14, marginHorizontal: '5%', flex: 1, borderColor: Colors.InputColor, borderWidth: .9, borderRadius: 5, flexDirection: 'row', alignItems: 'center', marginTop: 15 }}>
+                    <View style={{ padding: 15, marginTop: 20, marginHorizontal: '5%', flex: 1, borderColor: Colors.InputColor, borderWidth: .9, borderRadius: 5, flexDirection: 'row', alignItems: 'center', marginTop: 15 }}>
                         <View style={{ flex: .75, paddingStart: 10, flex: .9, fontSize: 10, }}>
                             <Text style={{ color: Colors.inputTextMainColor, fontFamily: 'flatMedium', alignSelf: 'flex-start' }}>{i18n.t('Franch')}</Text>
                         </View>
@@ -462,7 +447,7 @@ function RestaurantInfo({ navigation }) {
                         }
 
                     </View>
-                    <View style={{ height: width * .14, marginHorizontal: '5%', marginTop: 20, borderColor: Colors.InputColor, borderWidth: .9, borderRadius: 5, flexDirection: 'row', alignItems: 'center', }}>
+                    <View style={{ padding: 15, marginTop: 20, marginHorizontal: '5%', marginTop: 20, borderColor: Colors.InputColor, borderWidth: .9, borderRadius: 5, flexDirection: 'row', alignItems: 'center', }}>
                         <View style={{ flex: .75, flex: .9, paddingStart: 10 }}>
                             <Text style={{ color: Colors.inputTextMainColor, fontFamily: 'flatMedium', alignSelf: 'flex-start' }}>{i18n.t('DeliveryServ')}</Text>
                         </View>
@@ -531,7 +516,7 @@ const styles = StyleSheet.create({
     Container: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        marginHorizontal: 10,
+        marginHorizontal: '5%',
         padding: 10,
         alignItems: 'center',
     },
@@ -548,8 +533,7 @@ const styles = StyleSheet.create({
     },
     LoginBtn: {
         borderRadius: 5,
-        marginHorizontal: '6%',
-        marginVertical: 25
+        marginHorizontal: '5%',
     },
     centeredView: {
         flex: 1,

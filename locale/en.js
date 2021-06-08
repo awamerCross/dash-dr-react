@@ -135,7 +135,8 @@ const en = {
   //home
   departments: 'Departments',
   department: 'Department',
-
+  noAvailable: 'not Available',
+  Available: 'Available',
   Parceldelivery: 'Parcel Delivery',
   orderformAnotherShop: 'order from your store that is not available in the our menu',
   all: 'All',

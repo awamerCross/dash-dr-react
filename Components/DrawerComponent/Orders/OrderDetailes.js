@@ -234,20 +234,20 @@ function OrderDetailes({ navigation, route, onPressDetailes }) {
 
                             {
                                 click4 ?
-                                    <View style={{ flexDirection: 'row', marginHorizontal: '10%', alignItems: 'center', justifyContent: 'space-between' }}>
-                                        <View style={{ flexDirection: 'column', }}>
+                                    <View style={{ flexDirection: 'row', marginStart: '5%', alignItems: 'center', }}>
+                                        <View style={{ flexDirection: 'column', alignItems: 'center', alignSelf: 'flex-start' }}>
                                             <Text style={styles.name}>{i18n.t('productPricess')} : </Text>
                                             <Text style={[styles.name, {}]}>{i18n.t('Deliveryprice')} : </Text>
-                                            <Text style={[styles.name,]}>{i18n.t('Valueaddedtax')}  :</Text>
-                                            <Text style={[styles.name, { color: Colors.fontBold, fontSize: 18 }]}>{i18n.t('total')} : </Text>
+                                            {/* <Text style={[styles.name,]}>{i18n.t('Valueaddedtax')}  :</Text> */}
+                                            <Text style={[styles.name, { color: Colors.fontBold, fontSize: 14 }]}>{i18n.t('total')} : </Text>
                                         </View>
 
-                                        <View style={{ flexDirection: 'column', justifyContent: 'center' }}>
+                                        <View style={{ flexDirection: 'column', justifyContent: 'center', marginStart: 20 }}>
                                             <Text style={styles.sname}>{OrderDet.sum}  {i18n.t('Rial')}</Text>
                                             <Text style={[styles.sname,]}>{OrderDet.shipping} {i18n.t('Rial')}</Text>
-                                            <Text style={[styles.sname,]}>{OrderDet.added_value} {i18n.t('Rial')}</Text>
+                                            {/* <Text style={[styles.sname,]}>{OrderDet.added_value} {i18n.t('Rial')}</Text> */}
 
-                                            <Text style={[styles.sname, { color: Colors.RedColor, marginTop: 10 }]}>  {OrderDet.total} {i18n.t('Rial')}</Text>
+                                            <Text style={[styles.sname, { color: Colors.RedColor, }]}>  {OrderDet.total} {i18n.t('Rial')}</Text>
                                         </View>
                                     </View>
                                     : null
@@ -291,22 +291,20 @@ const styles = StyleSheet.create({
     },
     name: {
         fontFamily: 'flatMedium',
-        fontSize: width * .039,
+        fontSize: 12,
         color: Colors.fontNormal,
-        paddingVertical: 5
+        lineHeight: 28
     },
     sname: {
         fontFamily: 'flatMedium',
         fontSize: 14,
         color: Colors.IconBlack,
         alignSelf: 'flex-start',
-        paddingVertical: 5
+        lineHeight: 28
+
     },
     LoginBtn: {
-        marginVertical: 5,
         borderRadius: 5,
-        marginHorizontal: 20,
-        width: '90%',
         marginTop: 20
     },
     centeredView: {

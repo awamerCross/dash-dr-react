@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import {
-    View, StyleSheet, Text, Toast, ActivityIndicator, Alert
+    View, StyleSheet, Text, Toast, ActivityIndicator, Alert, ScrollView
 } from 'react-native'
 import { InputIcon } from '../../common/InputText'
 import BackBtn from '../../common/BackBtn'
@@ -21,6 +21,8 @@ import Loading from '../../common/LoadIng'
 
 function ActivateCode({ navigation, route }) {
     const [code, setCode] = useState('');
+    const [phone, setPhone] = useState('');
+
     const [spinner, setSpinner] = useState(false);
 
     const lang = useSelector(state => state.lang.language);
@@ -39,7 +41,7 @@ function ActivateCode({ navigation, route }) {
     const ActivateCode = () => {
 
         const val = _validate();
-        if (MyactivateCode == code && !val) {
+        if (!val) {
             setSpinner(true)
             dispatch(ActivationCode(code, token, lang, navigation)).then(() => setSpinner(false))
         }
@@ -52,7 +54,7 @@ function ActivateCode({ navigation, route }) {
 
 
     return (
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
 
             <BackBtn navigation={navigation} />
             <View style={{ margin: 20, }}>
@@ -65,18 +67,21 @@ function ActivateCode({ navigation, route }) {
             <InputIcon
                 label={i18n.t('code')}
                 placeholder={i18n.t('code')}
-                onChangeText={(e) => setCode(e)}
+                onChangeText={(code) => setCode(code)}
                 value={code}
-                styleCont={{ marginTop: 0 }}
+                styleCont={{ marginTop: 10, }}
                 keyboardType='numeric'
 
 
             />
+
+
+
             <Loading loading={spinner}>
                 < BTN title={i18n.t('send')} ContainerStyle={styles.LoginBtn} onPress={ActivateCode} />
             </Loading>
 
-        </View>
+        </ScrollView>
 
 
 
@@ -85,7 +90,8 @@ function ActivateCode({ navigation, route }) {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1, backgroundColor: Colors.bg
+        flex: 1,
+        backgroundColor: Colors.bg
     },
     TextLogin: {
         fontFamily: 'flatMedium',
@@ -101,17 +107,9 @@ const styles = StyleSheet.create({
         alignSelf: 'flex-start'
 
     },
-    wrapCheck: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        marginHorizontal: '8%',
-        marginTop: '10%'
-    },
+
     LoginBtn: {
-        marginVertical: 5,
         borderRadius: 5,
-        marginHorizontal: 20,
-        width: '90%',
     }
 })
 

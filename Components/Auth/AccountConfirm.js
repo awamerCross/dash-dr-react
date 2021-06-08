@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import {
-    View, StyleSheet, Text, Toast, ActivityIndicator, Alert
+    View, StyleSheet, Text, Toast, ActivityIndicator, Alert, ScrollView
 } from 'react-native'
 import { InputIcon } from '../../common/InputText'
 import BackBtn from '../../common/BackBtn'
@@ -49,7 +49,7 @@ function AccountConfirm({ navigation, route }) {
     const ActivateCode = () => {
 
         const val = _validate();
-        if (MyactivateCode == code && !val) {
+        if (!val) {
             setSpinner(true)
             dispatch(ResendCode(token, navigation, lang)).then(() => setSpinner(false))
         }
@@ -60,7 +60,7 @@ function AccountConfirm({ navigation, route }) {
     }
 
     return (
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
 
             <BackBtn navigation={navigation} />
 
@@ -84,7 +84,7 @@ function AccountConfirm({ navigation, route }) {
             <Loading loading={spinner} >
                 < BTN title={i18n.t('send')} ContainerStyle={styles.LoginBtn} onPress={ActivateCode} />
             </Loading>
-        </View>
+        </ScrollView>
 
     )
 }
@@ -114,10 +114,8 @@ const styles = StyleSheet.create({
         marginTop: '10%'
     },
     LoginBtn: {
-        marginVertical: 5,
         borderRadius: 5,
-        marginHorizontal: 20,
-        width: '90%',
+
     }
 })
 export default AccountConfirm

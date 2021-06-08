@@ -55,69 +55,74 @@ function ChangePassword({ navigation }) {
     }
 
     return (
-        <ScrollView style={{ flex: 1 }}>
+        <KeyboardAvoidingView behavior={(Platform.OS === 'ios') ? "padding" : null} style={{ backgroundColor: 'white', flex: 1 }}>
 
-            <Image source={{ uri: user.avatar }} style={styles.ImgBackGround} />
+            <ScrollView style={{ flex: 1 }}>
 
-            <ImageBackground source={require('../../../assets/Images/bluBack.png')} style={{ height: 120, width: 120, alignItems: 'center', justifyContent: 'center', position: 'absolute', marginLeft: -20 }} resizeMode='contain'>
-                <TouchableOpacity onPress={() => navigation.goBack()}>
-                    {
-                        I18nManager.isRTL ?
-                            <Image source={require('../../../assets/Images/arrowwhite.png')} style={{ height: 25, width: 25, marginTop: 45 }} resizeMode='contain' />
-                            :
-                            <Image source={require('../../../assets/Images/left.png')} style={{ height: 25, width: 25, marginTop: 45 }} resizeMode='contain' />
+                <Image source={{ uri: user.avatar }} style={styles.ImgBackGround} />
 
-                    }
-                </TouchableOpacity>
-            </ImageBackground>
-            <KeyboardAvoidingView behavior={(Platform.OS === 'ios') ? "padding" : null} style={{ backgroundColor: 'white', }}>
+                <ImageBackground source={require('../../../assets/Images/bluBack.png')} style={{ height: 120, width: 120, alignItems: 'center', justifyContent: 'center', position: 'absolute', marginLeft: -20 }} resizeMode='contain'>
+                    <TouchableOpacity onPress={() => navigation.goBack()}>
+                        {
+                            I18nManager.isRTL ?
+                                <Image source={require('../../../assets/Images/arrowwhite.png')} style={{ height: 25, width: 25, marginTop: 45 }} resizeMode='contain' />
+                                :
+                                <Image source={require('../../../assets/Images/left.png')} style={{ height: 25, width: 25, marginTop: 45 }} resizeMode='contain' />
+
+                        }
+                    </TouchableOpacity>
+                </ImageBackground>
 
                 <View style={styles.ScrolContainer}>
 
+                    <ScrollView style={{ flex: 1 }}>
 
-                    <Text style={styles.MainText}>{i18n.t('cnagePass')}</Text>
-
-
-                    <InputPassword
-                        label={i18n.t('passold')}
-                        onChangeText={(e) => setPassword(e)}
-                        value={password}
-                        secureTextEntry={!showPass}
-                        image={require('../../../assets/Images/view.png')}
-                        onPress={() => setShowPass(!showPass)}
-                        styleCont={{ marginTop: 0 }}
-                    />
+                        <Text style={styles.MainText}>{i18n.t('cnagePass')}</Text>
 
 
-                    <InputPassword
-                        label={i18n.t('NewPassword')}
-                        onChangeText={(e) => setNewPassword(e)}
-                        value={Newpassword}
-                        secureTextEntry={!showPass3}
-                        image={require('../../../assets/Images/view.png')}
-                        styleCont={{ marginTop: 10 }}
-                        onPress={() => setShowPass3(!showPass3)}
+                        <InputPassword
+                            label={i18n.t('passold')}
+                            onChangeText={(e) => setPassword(e)}
+                            value={password}
+                            secureTextEntry={!showPass}
+                            image={require('../../../assets/Images/view.png')}
+                            onPress={() => setShowPass(!showPass)}
+                            styleCont={{ marginTop: 20 }}
+                        />
+
+
+                        <InputPassword
+                            label={i18n.t('NewPassword')}
+                            onChangeText={(e) => setNewPassword(e)}
+                            value={Newpassword}
+                            secureTextEntry={!showPass3}
+                            image={require('../../../assets/Images/view.png')}
+                            styleCont={{ marginTop: 20 }}
+                            onPress={() => setShowPass3(!showPass3)}
 
 
 
-                    />
-                    <InputPassword
-                        label={i18n.t('passoldch')}
-                        onChangeText={(e) => setConfirmPassword(e)}
-                        value={confirmPassword}
-                        secureTextEntry={!showPass2}
-                        image={require('../../../assets/Images/view.png')}
-                        onPress={() => setShowPass2(!showPass2)}
-                        styleCont={{ marginTop: 10 }}
-                    />
+                        />
+                        <InputPassword
+                            label={i18n.t('passoldch')}
+                            onChangeText={(e) => setConfirmPassword(e)}
+                            value={confirmPassword}
+                            secureTextEntry={!showPass2}
+                            image={require('../../../assets/Images/view.png')}
+                            onPress={() => setShowPass2(!showPass2)}
+                            styleCont={{ marginTop: 20 }}
+                        />
 
 
-                    <BTN title={i18n.t('save')} ContainerStyle={styles.LoginBtn} onPress={SubmitLoginHandler} />
+                    </ScrollView>
 
                 </View>
-            </KeyboardAvoidingView>
+                <BTN title={i18n.t('save')} ContainerStyle={styles.LoginBtn} onPress={SubmitLoginHandler} />
 
-        </ScrollView>
+            </ScrollView >
+
+        </KeyboardAvoidingView >
+
 
     )
 }
@@ -164,9 +169,8 @@ const styles = StyleSheet.create({
     },
     LoginBtn: {
         borderRadius: 5,
-        marginHorizontal: '5%',
-        width: '90%',
-        marginTop: 0
+
+        marginTop: 0,
     }
 })
 export default ChangePassword

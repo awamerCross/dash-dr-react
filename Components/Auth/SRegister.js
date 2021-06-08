@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react'
-import { View, ScrollView, StyleSheet, Text, Platform, TouchableOpacity, Modal, Image, Button, Alert, KeyboardAvoidingView } from 'react-native'
+import { View, ScrollView, StyleSheet, Text, Platform, TouchableOpacity, Modal, Image, Button, Alert, KeyboardAvoidingView, SafeAreaView } from 'react-native'
 import Colors from '../../consts/Colors';
 import BackBtn from '../../common/BackBtn';
 import i18n from '../../locale/i18n';
@@ -50,8 +50,8 @@ function SRegister({ navigation, route }) {
     const [CommercialRegister, setCommercialRegister] = useState('');
     const [isopened, setisopened] = useState(false)
     const [mapRegion, setMapRegion] = useState({
-        latitude: null,
-        longitude: null,
+        latitude: '24.774265',
+        longitude: '46.738586',
         latitudeDelta,
         longitudeDelta
     });
@@ -209,22 +209,20 @@ function SRegister({ navigation, route }) {
 
                 <Container loading={spinner}>
 
-                    <View style={styles.FDrbDown}>
-                        <Dropdown
-                            placeholder={i18n.t('dep')}
-                            data={DebName}
-                            fontSize={16}
-                            pickerStyle={{ marginTop: 70, margin: 5, flex: 1 }}
-                            labelFontSize={16}
-                            itemTextStyle={{ fontFamily: 'flatMedium' }}
-                            itemTextStyle={{ fontSize: 18, fontFamily: 'flatMedium' }}
-                            lineWidth={0}
-                            containerStyle={{ width: '90%', paddingHorizontal: 5, bottom: 10 }}
-                            animationDuration={0}
-                            onChangeText={val => setDepartment(val)}
-                            value={DebId.label}
-                        />
-                    </View>
+                    <Dropdown
+                        placeholder={i18n.t('dep')}
+                        data={DebName}
+                        fontSize={16}
+                        pickerStyle={{ marginTop: 70, margin: 5, flex: 1 }}
+                        labelFontSize={16}
+                        itemTextStyle={{ fontFamily: 'flatMedium' }}
+                        itemTextStyle={{ fontSize: 18, fontFamily: 'flatMedium' }}
+                        lineWidth={0}
+                        containerStyle={{ justifyContent: 'center', marginHorizontal: '5%', borderWidth: 1, borderColor: '#E0E0E0', paddingHorizontal: 10, height: 60, borderRadius: 5, paddingBottom: 15, marginTop: 20 }}
+                        animationDuration={0}
+                        onChangeText={val => setDepartment(val)}
+                        value={DebId.label}
+                    />
 
                     <InputIcon
                         label={i18n.t('ResNameAr')}
@@ -239,7 +237,7 @@ function SRegister({ navigation, route }) {
                         placeholder={i18n.t('ResNameEn')}
                         onChangeText={(e) => setNameEN(e)}
                         value={nameEN}
-                        styleCont={{ marginTop: 0 }}
+                        styleCont={{ marginTop: 20 }}
 
                     />
 
@@ -261,72 +259,52 @@ function SRegister({ navigation, route }) {
                     {
 
                         isopened ?
-                            <View style={styles.centeredView} >
-                                <Modal
-                                    animationType="slide"
-                                    transparent={true}
-                                    visible={isopened}   >
-                                    {
-                                        mapRegion.latitude != null ?
+                            <Modal
+                                animationType="slide"
+                                transparent={true}
+                                visible={isopened}   >
 
-                                            <View style={styles.centeredView}>
-                                                <View style={styles.modalView}>
+                                <View style={{ flex: 1, }}>
+                                    <MapView
+                                        userInterfaceStyle={'dark'}
+                                        style={{ flex: 1, }}
+                                        onRegionChangeComplete={(e) => _handleMapRegionChange(e)}
+                                        customMapStyle={mapStyle}
+                                        initialRegion={mapRegion}
+                                        showsUserLocation={true}
+                                        zoomControlEnabled={true}
+                                        showsTraffic={true}
+                                    />
 
-                                                    <MapView
+                                    <View style={styles.markerFixed}>
+                                        <Image style={styles.marker} source={require('../../assets/Images/map_pin.png')} resizeMode='contain' />
+                                    </View>
+                                    <SafeAreaView style={styles.footer}>
+                                        <TouchableOpacity onPress={() => setisopened(false)} style={styles.wrbLocations}>
+                                            <Text style={{ color: 'white', fontSize: 20, fontFamily: 'flatMedium', alignSelf: 'center' }}>{i18n.t('save')}</Text>
+                                        </TouchableOpacity>
+                                    </SafeAreaView>
+                                </View>
 
-                                                        style={{ flex: 1, width: '100%', backgroundColor: Colors.bg }}
-                                                        region={mapRegion}
-                                                        ref={mapRef}
-                                                        onRegionChangeComplete={region => setMapRegion(region)}
-                                                        onRegionChangeComplete={(e) => _handleMapRegionChange(e)}
-                                                        customMapStyle={mapStyle}
-                                                        initialRegion={mapRegion}
-                                                        showsUserLocation={true}
-                                                        zoomControlEnabled={true}
-                                                        showsTraffic={true} >
-
-                                                        <Marker
-                                                            draggable
-                                                            coordinate={mapRegion}
-                                                        // onDragEnd={(e) => _handleMapRegionChange(e.nativeEvent.coordinate)}
-
-                                                        >
-                                                            <Image source={require('../../assets/Images/map_pin.png')} resizeMode='contain' style={{ width: 35, height: 35 }} />
-                                                        </Marker>
-                                                    </MapView>
-                                                    <TouchableOpacity onPress={() => setisopened(false)} style={styles.wrbLocations}>
-                                                        <Text style={{ color: 'white', fontSize: 20, fontFamily: 'flatMedium', alignSelf: 'center' }}>{i18n.t('save')}</Text>
-                                                    </TouchableOpacity>
-
-                                                </View>
-                                            </View>
-                                            :
-                                            (<View />)
-                                    }
-
-
-                                </Modal>
-                            </View>
+                            </Modal>
                             :
                             (<View />)
                     }
 
-                    <View style={styles.DrbDown}>
-                        <Dropdown
-                            placeholder={i18n.t('city')}
-                            data={cityName}
-                            fontSize={16}
-                            labelFontSize={16}
-                            itemTextStyle={{ fontFamily: 'flatMedium', fontSize: 16 }}
-                            lineWidth={0}
-                            containerStyle={{ width: '90%', paddingHorizontal: 5, bottom: 10 }}
-                            animationDuration={0}
-                            onChangeText={val => setCity(val)}
-                            pickerStyle={{ marginTop: 70, margin: 5, flex: 1 }}
+                    <Dropdown
+                        placeholder={i18n.t('city')}
+                        data={cityName}
+                        fontSize={16}
+                        labelFontSize={16}
+                        itemTextStyle={{ fontFamily: 'flatMedium', fontSize: 16 }}
+                        lineWidth={0}
+                        containerStyle={{ justifyContent: 'center', marginHorizontal: '5%', borderWidth: 1, borderColor: '#E0E0E0', paddingHorizontal: 10, height: 60, borderRadius: 5, paddingBottom: 15, marginTop: 20 }}
+                        animationDuration={0}
+                        onChangeText={val => setCity(val)}
+                        pickerStyle={{ marginTop: 70, margin: 5, flex: 1 }}
 
-                            value={CityID.label}
-                        />
-                    </View>
+                        value={CityID.label}
+                    />
 
                     <InputIcon
                         label={i18n.t('branchNum')}
@@ -343,14 +321,14 @@ function SRegister({ navigation, route }) {
                         keyboardType='numeric'
                         onChangeText={(e) => setCommercialRegister(e)}
                         value={CommercialRegister}
-                        styleCont={{ marginTop: 0 }}
+                        styleCont={{ marginTop: 20 }}
 
                     />
                     <BTN title={i18n.t('continue')} ContainerStyle={styles.LoginBtn} onPress={NavigateToNextLocation} />
                 </Container>
 
             </ScrollView>
-        </KeyboardAvoidingView>
+        </KeyboardAvoidingView >
 
 
     )
@@ -383,8 +361,8 @@ const styles = StyleSheet.create({
     modalView: {
         backgroundColor: "white",
         borderRadius: 5,
-        width: width * .9,
-        height: height * .75,
+        width: '100%',
+        height: '100%',
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
@@ -396,10 +374,8 @@ const styles = StyleSheet.create({
         overflow: 'hidden'
     },
     LoginBtn: {
-        marginVertical: 5,
         borderRadius: 15,
-        marginHorizontal: 20,
-        width: '90%',
+        marginHorizontal: '5%',
     },
 
     location: {
@@ -431,7 +407,6 @@ const styles = StyleSheet.create({
         marginTop: 10
     },
     WrapLocation: {
-        height: width * .14,
         flexDirection: 'row',
         overflow: 'hidden',
         marginHorizontal: "5%",
@@ -442,14 +417,38 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         paddingEnd: 20,
         paddingStart: 10,
-        marginTop: 0
+        marginTop: 20,
+        padding: 20
     },
     wrbLocations: {
         backgroundColor: Colors.sky,
         width: '100%',
         padding: 15,
         alignItems: 'center'
+    },
+    markerFixed: {
+        left: '50%',
+        marginLeft: -24,
+        marginTop: -48,
+        position: 'absolute',
+        top: '50%'
+    },
+    marker: {
+        height: 48,
+        width: 48
+    },
+    footer: {
+        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+        bottom: 0,
+        position: 'absolute',
+        width: '100%'
+    },
+    region: {
+        color: '#fff',
+        lineHeight: 20,
+        margin: 20
     }
+
 })
 
 const mapStyle = [

@@ -105,7 +105,7 @@ function Fregister({ navigation }) {
                     onChangeText={(e) => { HandelChange(e); setPhone(e) }}
                     value={phone}
                     keyboardType='numeric'
-                    styleCont={{ marginTop: 0 }}
+                    styleCont={{ marginTop: 20 }}
                 />
 
                 <InputIcon
@@ -114,7 +114,7 @@ function Fregister({ navigation }) {
                     onChangeText={(e) => { HandelChange(e); setemail(e) }}
                     value={email}
                     keyboardType='email-address'
-                    styleCont={{ marginTop: 0 }}
+                    styleCont={{ marginTop: 20 }}
                 />
 
 
@@ -125,7 +125,7 @@ function Fregister({ navigation }) {
                     secureTextEntry={!showPass}
                     image={require('../../assets/Images/view.png')}
                     onPress={() => setShowPass(!showPass)}
-                    styleCont={{ marginTop: 0 }}
+                    styleCont={{ marginTop: 20 }}
                 />
                 <InputPassword
                     label={i18n.t('confirmPass')}
@@ -134,7 +134,7 @@ function Fregister({ navigation }) {
                     secureTextEntry={!showPass2}
                     image={require('../../assets/Images/view.png')}
                     onPress={() => setShowPass2(!showPass2)}
-                    styleCont={{ marginTop: 10 }}
+                    styleCont={{ marginTop: 20 }}
                 />
 
                 <View style={styles.Radion}>
@@ -190,13 +190,9 @@ const styles = StyleSheet.create({
 
     },
     LoginBtn: {
-        marginVertical: 25,
         borderRadius: 15,
-        marginHorizontal: 20,
-        width: '90%',
     },
     Radion: {
-        height: width * .14,
         marginHorizontal: '5%',
         borderColor: Colors.InputColor,
         borderWidth: .9,
@@ -205,7 +201,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'space-between',
         paddingHorizontal: 15,
-        marginTop: 10
+        marginTop: 20,
+        padding: 10
     },
     owner: {
         color: Colors.fontNormal,

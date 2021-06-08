@@ -18,7 +18,6 @@ const Slider = ({ navigation, route }) => {
     const lang = useSelector(state => state.lang.language);
     const dispatch = useDispatch()
 
-    console.log(Intro);
     useEffect(() => {
 
         AsyncStorage.getItem("Inro", (err, res) => {
@@ -59,7 +58,7 @@ const Slider = ({ navigation, route }) => {
 
         return (
             <Animatable.View animation="zoomIn" easing="ease-out" delay={500} style={styles.slide}>
-                <Image source={item.image} style={styles.ImgsSlide} />
+                <Image source={item.image} style={styles.ImgsSlide} resizeMode='contain' />
                 <View style={styles.container}>
                     <Text animation="slideInDown" iterationCount={5} direction="alternate" style={styles.title}>{item.title}</Text>
                     <Text animation="slideInDown" iterationCount={5} direction="alternate" style={styles.text}>{item.text}</Text>
@@ -110,7 +109,7 @@ const styles = StyleSheet.create({
     },
     container: {
         position: 'absolute',
-        bottom: height * .22
+        bottom: 130
     },
     ImgsSlide: {
         width,

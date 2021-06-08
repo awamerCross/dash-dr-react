@@ -57,8 +57,8 @@ function ContactUs({ navigation }) {
             <HomeHeader navigation={navigation} label={i18n.t('contactus')} onPress={() => navigation.navigate('MyProfile')} />
 
             <KeyboardAvoidingView
-                behavior={Platform.OS == "ios" ? "padding" : "height"}
-                style={styles.container}
+                behavior={Platform.OS == "ios" ? "padding" : null}
+                style={{ flex: 1 }}
             >
                 <Card />
                 <InputIcon
@@ -67,7 +67,6 @@ function ContactUs({ navigation }) {
                     onChangeText={(e) => setName(e)}
                     value={name}
                     styleCont={{ marginTop: 60 }}
-                    inputStyle={{ paddingTop: Platform.OS = 'ios' ? 5 : 0, }}
 
                 />
                 <InputIcon
@@ -76,8 +75,7 @@ function ContactUs({ navigation }) {
                     onChangeText={(e) => setemail(e)}
                     value={email}
                     keyboardType='email-address'
-                    styleCont={{ marginTop: 0 }}
-                    inputStyle={{ paddingTop: Platform.OS = 'ios' ? 10 : 0, }}
+                    styleCont={{ marginTop: 20 }}
 
                 />
 
@@ -86,20 +84,18 @@ function ContactUs({ navigation }) {
 
 
                     placeholder={i18n.t('message')}
-                    styleCont={{ height: 160, marginTop: 20, width: '90%' }}
+                    label={i18n.t('message')}
+                    styleCont={{ height: 120, marginTop: 20, width: '90%' }}
                     inputStyle={{ paddingHorizontal: 0, paddingStart: 10 }}
-                    LabelStyle={{ bottom: width * .9, }}
-                    placeholder={i18n.t('message')}
                     onChangeText={(e) => setMessage(e)}
                     value={Message}
-                    inputStyle={{ paddingTop: Platform.OS = 'ios' ? 15 : 0, }}
 
                     multiline={true}
                     numberOfLines={10} />
 
                 <Container loading={spinner}>
 
-                    <BTN title={i18n.t('send')} ContainerStyle={styles.LoginBtn} onPress={SendComplaimentation} />
+                    <BTN title={i18n.t('send')} onPress={SendComplaimentation} />
                 </Container>
 
             </KeyboardAvoidingView>
@@ -135,14 +131,7 @@ const styles = StyleSheet.create({
         color: Colors.IconBlack,
         marginVertical: 5
     },
-    LoginBtn: {
-        marginVertical: 10,
-        borderRadius: 5,
-        width: '90%',
-        marginHorizontal: '5%',
-        marginTop: 0
 
-    },
     Card: {
         height: 140,
         shadowColor: Colors.bg,

@@ -201,45 +201,42 @@ function Menue({ navigation, route }) {
                 value={Search}
                 onChangeText={(e) => handleChange(e)}
                 image={require('../../../assets/Images/search.png')}
-                styleCont={{ marginTop: 0, height: 70, }}
-                inputStyle={{ borderRadius: 10, }}
+                styleCont={{ marginTop: 0, height: 60, }}
             />
 
             <Card />
 
-            <View style={{ height: 50, width: '90%', margin: 20, flexDirection: 'row', justifyContent: 'center', alignItems: 'center', zIndex: 10, backgroundColor: '#F6F6F6', }}>
+            <View style={{ flexDirection: 'row', alignItems: 'center', marginHorizontal: '5%', zIndex: 10, backgroundColor: '#F6F6F6', height: 80, marginTop: 10, justifyContent: 'center' }}>
                 <TouchableOpacity onPress={SelectAllChecked} style={{ flexDirection: 'row', alignItems: 'center' }}>
                     <CheckBox checked={isSelected2} color={isSelected2 ? Colors.sky : '#DBDBDB'} style={{ backgroundColor: isSelected2 ? Colors.sky : Colors.bg, marginStart: -5, borderRadius: 5 }} onPress={SelectAllChecked} />
-                    <Text style={{ fontFamily: 'flatMedium', fontSize: width * .03, paddingHorizontal: 15, color: Colors.inputTextMainColor }}>{i18n.t('Select')}</Text>
+                    <Text style={{ fontFamily: 'flatMedium', fontSize: 12, paddingEnd: 15, color: Colors.inputTextMainColor, paddingStart: 15 }}>{i18n.t('Select')}</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity onPress={DeleteArr.length == 0 ? () => ToasterNative(i18n.t('SelectElement'), 'danger', 'bottom')
-                    : DeleteMenueMultiIteM} style={{ borderWidth: .4, backgroundColor: Colors.bg, alignItems: 'center', justifyContent: 'center', borderColor: Colors.InputColor, }}>
-                    <Text style={{ fontFamily: 'flatMedium', paddingVertical: 5, paddingHorizontal: 15, color: Colors.inputTextMainColor }}> {i18n.t('delete')}</Text>
+                    : DeleteMenueMultiIteM} style={{ backgroundColor: Colors.bg, alignItems: 'center', justifyContent: 'center', height: '50%', paddingHorizontal: 10, marginStart: 5 }}>
+                    <Text style={{ fontFamily: 'flatMedium', color: Colors.inputTextMainColor }}> {i18n.t('delete')}</Text>
                 </TouchableOpacity>
 
 
 
-                <Text style={{ fontFamily: 'flatMedium', fontSize: width * .03, paddingHorizontal: 2, color: Colors.inputTextMainColor }}>{i18n.t('filter')}</Text>
-                <View style={{ borderWidth: .4, alignItems: 'center', justifyContent: 'center', height: width * .09, backgroundColor: Colors.bg, borderColor: Colors.InputColor, marginHorizontal: 5 }}>
-                    <Dropdown
-                        placeholder={i18n.t('select')}
-                        data={data2}
-                        style={{ fontFamily: 'flatMedium', }}
-                        animationDuration={0}
-                        onChangeText={(val) => handleChandDrpDown(val)}
-                        fontSize={12}
+                <Text style={{ fontFamily: 'flatMedium', fontSize: 12, paddingHorizontal: 2, color: Colors.inputTextMainColor }}>{i18n.t('filter')}</Text>
+                <Dropdown
+                    placeholder={i18n.t('select')}
+                    data={data2}
+                    style={{ fontFamily: 'flatMedium', }}
+                    animationDuration={0}
+                    onChangeText={(val) => handleChandDrpDown(val)}
+                    fontSize={12}
 
-                        itemTextStyle={{ fontFamily: 'flatMedium' }}
-                        lineWidth={0}
-                        containerStyle={{ width: width * .22, paddingHorizontal: 8, bottom: 10 }}
-                    />
-                </View>
-
+                    itemTextStyle={{ fontFamily: 'flatMedium', fontSize: 12 }}
+                    lineWidth={0}
+                    containerStyle={{ justifyContent: 'center', width: 80, paddingBottom: 15, paddingStart: 10, marginHorizontal: '1%', backgroundColor: Colors.bg, height: 60 }}
+                />
             </View>
 
 
-            <BTN title={i18n.t('AddMenue')} ContainerStyle={[styles.LoginBtn, { marginHorizontal: 18, marginVertical: 15 }]} onPress={() => setModalVisible(!modalVisible)} />
+
+            <BTN title={i18n.t('AddMenue')} ContainerStyle={[styles.LoginBtn,]} onPress={() => setModalVisible(!modalVisible)} />
 
 
 
@@ -308,27 +305,31 @@ function Menue({ navigation, route }) {
                         <KeyboardAvoidingView behavior={(Platform.OS === 'ios') ? "padding" : null} style={{ backgroundColor: 'white', }}>
 
                             <View style={styles.modalView}>
-                                <View style={{ margin: 20, backgroundColor: Colors.bg }}>
-                                    <Text style={{ fontFamily: 'flatMedium', fontSize: 14, }}>{i18n.t('edit')} </Text>
+                                <ScrollView style={{ backgroundColor: 'white', flex: 1 }}>
 
-                                    <InputIcon
+                                    <View style={{ margin: 20, backgroundColor: Colors.bg }}>
+                                        <Text style={{ fontFamily: 'flatMedium', fontSize: 14, }}>{i18n.t('edit')} </Text>
 
-                                        label={i18n.t('menueAr')}
-                                        placeholder={i18n.t('menueAr')}
-                                        onChangeText={(e) => setNameArEdit(e)}
-                                        value={nameAREdit}
-                                    />
+                                        <InputIcon
 
-                                    <InputIcon
-                                        label={i18n.t('menueEn')}
-                                        placeholder={i18n.t('menueEn')}
-                                        onChangeText={(e) => setNameENEdit(e)}
-                                        value={nameENEdit}
-                                        styleCont={{ marginTop: -5 }}
-                                    />
+                                            label={i18n.t('menueAr')}
+                                            placeholder={i18n.t('menueAr')}
+                                            onChangeText={(e) => setNameArEdit(e)}
+                                            value={nameAREdit}
+                                        />
 
-                                    <BTN title={i18n.t('edit')} ContainerStyle={styles.LoginBtn} onPress={EditMEnue} />
-                                </View>
+                                        <InputIcon
+                                            label={i18n.t('menueEn')}
+                                            placeholder={i18n.t('menueEn')}
+                                            onChangeText={(e) => setNameENEdit(e)}
+                                            value={nameENEdit}
+                                            styleCont={{ marginTop: 20 }}
+                                        />
+
+                                        <BTN title={i18n.t('edit')} ContainerStyle={styles.LoginBtn} onPress={EditMEnue} />
+                                    </View>
+                                </ScrollView>
+
                             </View>
                         </KeyboardAvoidingView>
                     </TouchableOpacity>
@@ -341,30 +342,34 @@ function Menue({ navigation, route }) {
                 visible={modalVisible} >
 
                 <TouchableOpacity style={styles.centeredView} onPress={() => setModalVisible(false)} >
-                    <KeyboardAvoidingView behavior={(Platform.OS === 'ios') ? "padding" : null} style={{ backgroundColor: 'white', }}>
-
+                    <KeyboardAvoidingView behavior={(Platform.OS === 'ios') ? "padding" : null} >
                         <View style={styles.modalView}>
-                            <View style={{ margin: 20, backgroundColor: Colors.bg }}>
-                                <Text style={{ fontFamily: 'flatMedium', fontSize: 14, marginHorizontal: 15 }}>{i18n.t('AddMenue')} </Text>
+                            <ScrollView style={{ backgroundColor: 'white', flex: 1 }}>
 
-                                <InputIcon
-                                    label={i18n.t('menueAr')}
-                                    placeholder={i18n.t('menueAr')}
-                                    onChangeText={(e) => setNameAr(e)}
-                                    value={nameAR}
-                                />
+                                <View style={{ margin: 20, backgroundColor: Colors.bg }}>
+                                    <Text style={{ fontFamily: 'flatMedium', fontSize: 14, marginHorizontal: 15 }}>{i18n.t('AddMenue')} </Text>
 
-                                <InputIcon
-                                    label={i18n.t('menueEn')}
-                                    placeholder={i18n.t('menueEn')}
-                                    onChangeText={(e) => setNameEN(e)}
-                                    value={nameEN}
-                                    styleCont={{ marginTop: -5 }}
-                                />
+                                    <InputIcon
+                                        label={i18n.t('menueAr')}
+                                        placeholder={i18n.t('menueAr')}
+                                        onChangeText={(e) => setNameAr(e)}
+                                        value={nameAR}
+                                    />
 
-                                <BTN title={i18n.t('AddMenue')} ContainerStyle={styles.LoginBtn} onPress={Add_menue} />
-                            </View>
+                                    <InputIcon
+                                        label={i18n.t('menueEn')}
+                                        placeholder={i18n.t('menueEn')}
+                                        onChangeText={(e) => setNameEN(e)}
+                                        value={nameEN}
+                                        styleCont={{ marginTop: 20 }}
+                                    />
+
+                                    <BTN title={i18n.t('AddMenue')} ContainerStyle={styles.LoginBtn} onPress={Add_menue} />
+                                </View>
+                            </ScrollView>
+
                         </View>
+
                     </KeyboardAvoidingView>
                 </TouchableOpacity>
             </Modal>
@@ -396,19 +401,16 @@ const styles = StyleSheet.create({
         textAlign: 'center'
     },
     LoginBtn: {
-        marginVertical: 15,
         borderRadius: 5,
-        marginHorizontal: 15,
-        marginTop: 0,
-        width: '91%',
+        marginTop: 20,
+        marginBottom: 20
     },
     Card: {
 
         flexDirection: 'row',
         justifyContent: 'space-between',
+        marginHorizontal: '5%',
         height: 120,
-        width: '90%',
-        marginStart: 20,
         marginVertical: 5,
         shadowColor: Colors.bg,
         marginTop: 0,

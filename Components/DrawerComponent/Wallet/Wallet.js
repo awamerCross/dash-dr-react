@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { View, Image, StyleSheet, Text, TouchableOpacity, I18nManager, Modal, Platform, ImageBackground, KeyboardAvoidingView } from 'react-native'
+import { View, Image, StyleSheet, Text, TouchableOpacity, I18nManager, Modal, Platform, ImageBackground, KeyboardAvoidingView, ScrollView } from 'react-native'
 
 import i18n from '../../../locale/i18n'
 import Header from '../../../common/Header'
@@ -153,26 +153,29 @@ function Wallet({ navigation }) {
                                 <KeyboardAvoidingView behavior={(Platform.OS === 'ios') ? "padding" : null} style={{ backgroundColor: 'white', }}>
 
                                     <View style={styles.modalView}>
+                                        <ScrollView>
 
-                                        <View style={{ margin: 20, alignItems: 'center', justifyContent: 'center' }}>
-                                            <Text style={{ fontFamily: 'flatMedium', fontSize: 12, marginVertical: 5, color: Colors.fontNormal }}>{i18n.t('RecoverWallet')} </Text>
-                                            <InputIcon
-                                                label={i18n.t("Accnum")}
-                                                placeholder={i18n.t("Accnum")}
-                                                value={accountnum}
-                                                onChangeText={(e) => setAccountnum(e)}
-                                                styleCont={{ marginTop: 10, width, }}
-                                                inputStyle={{ borderRadius: 25, marginHorizontal: '3%' }}
+                                            <View style={{ margin: 20, alignItems: 'center', justifyContent: 'center' }}>
+                                                <Text style={{ fontFamily: 'flatMedium', fontSize: 12, marginVertical: 5, color: Colors.fontNormal }}>{i18n.t('RecoverWallet')} </Text>
+                                                <InputIcon
+                                                    label={i18n.t("Accnum")}
+                                                    placeholder={i18n.t("Accnum")}
+                                                    value={accountnum}
+                                                    onChangeText={(e) => setAccountnum(e)}
+                                                    styleCont={{ marginTop: 10, width: '100%' }}
+                                                    inputStyle={{ borderRadius: 25, marginHorizontal: '5%', }}
+                                                    LabelStyle={{ left: 50 }}
 
 
-                                            />
-                                            <View style={{ width: '100%' }}>
-                                                <BTN title={i18n.t('agree')} ContainerStyle={styles.LoginBtn} onPress={WithdrawwalletConfirm} />
-                                                <BTN title={i18n.t('close')} ContainerStyle={[styles.LoginBtn, { backgroundColor: Colors.inputTextMainColor }]} onPress={() => setModalVisible(false)} />
+                                                />
+                                                <View style={{ width: '100%' }}>
+                                                    <BTN title={i18n.t('agree')} ContainerStyle={styles.LoginBtn} onPress={WithdrawwalletConfirm} />
+                                                    <BTN title={i18n.t('close')} ContainerStyle={[styles.LoginBtn, { backgroundColor: Colors.inputTextMainColor }]} onPress={() => setModalVisible(false)} />
+                                                </View>
+
+
                                             </View>
-
-
-                                        </View>
+                                        </ScrollView>
 
                                     </View>
                                 </KeyboardAvoidingView>
@@ -247,8 +250,6 @@ const styles = StyleSheet.create({
         backgroundColor: "white",
         borderTopRightRadius: 25,
         borderTopLeftRadius: 25,
-        width: width,
-        height: height * .4,
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
@@ -257,6 +258,7 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.2,
         shadowRadius: 3.84,
         elevation: 5,
+        width
     },
     LoginBtn: {
         marginTop: 20,

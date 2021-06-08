@@ -280,36 +280,34 @@ function Products({ navigation }) {
                         <Card />
 
 
-                        <View style={{ height: 60, width: '90%', margin: 20, flexDirection: 'row', alignItems: 'center', zIndex: 10, backgroundColor: '#F6F6F6', }}>
+                        <View style={{ justifyContent: 'space-evenly', height: 60, marginHorizontal: '5%', flexDirection: 'row', alignItems: 'center', zIndex: 10, backgroundColor: '#F6F6F6', marginTop: 20, }}>
                             <TouchableOpacity onPress={SelectAllChecked} style={{ flexDirection: 'row', alignItems: 'center' }}>
 
                                 <CheckBox checked={isSelected2} color={isSelected2 ? Colors.sky : '#DBDBDB'} style={{ backgroundColor: isSelected2 ? Colors.sky : Colors.bg, marginStart: -5, borderRadius: 5 }} onPress={SelectAllChecked} />
-                                <Text style={{ marginStart: 12, fontFamily: 'flatMedium', color: Colors.inputTextMainColor, fontSize: width * .03, paddingHorizontal: 5 }}>{i18n.t('Select')}</Text>
+                                <Text style={{ marginStart: 12, fontFamily: 'flatMedium', color: Colors.inputTextMainColor, fontSize: 12, paddingHorizontal: 5 }}>{i18n.t('Select')}</Text>
                             </TouchableOpacity>
                             <TouchableOpacity onPress={DeleteArr.length == 0 ?
                                 () => ToasterNative(i18n.t('SelectElement'), 'danger', 'bottom')
 
-                                : DeleteMenueMultiIteM} style={{ borderWidth: .4, paddingHorizontal: 15, backgroundColor: Colors.bg, alignItems: 'center', justifyContent: 'center', height: width * .09, borderColor: Colors.InputColor, }}>
+                                : DeleteMenueMultiIteM} style={{ paddingHorizontal: 15, backgroundColor: Colors.bg, alignItems: 'center', justifyContent: 'center', height: 60, borderColor: Colors.InputColor, }}>
                                 <Text style={{ fontFamily: 'flatMedium', color: Colors.inputTextMainColor, }}> {i18n.t('delete')}</Text>
                             </TouchableOpacity>
 
 
 
-                            <Text style={{ fontFamily: 'flatMedium', fontSize: width * .03, paddingHorizontal: 2, color: Colors.inputTextMainColor }}>{i18n.t('filter')}</Text>
-                            <View style={{ borderWidth: .4, alignItems: 'center', justifyContent: 'center', height: width * .09, backgroundColor: Colors.bg, borderColor: Colors.InputColor, marginHorizontal: 5 }}>
-                                <Dropdown
-                                    placeholder={i18n.t('select')}
-                                    data={data2}
-                                    style={{ fontFamily: 'flatMedium', }}
-                                    animationDuration={0}
-                                    onChangeText={(val) => handleChandDrpDown(val)}
-                                    fontSize={14}
-                                    itemTextStyle={{ fontFamily: 'flatMedium' }}
-                                    lineWidth={0}
+                            <Text style={{ fontFamily: 'flatMedium', fontSize: 12, paddingHorizontal: 2, color: Colors.inputTextMainColor }}>{i18n.t('filter')}</Text>
+                            <Dropdown
+                                placeholder={i18n.t('select')}
+                                data={data2}
+                                style={{ fontFamily: 'flatMedium', }}
+                                animationDuration={0}
+                                onChangeText={(val) => handleChandDrpDown(val)}
+                                fontSize={14}
+                                itemTextStyle={{ fontFamily: 'flatMedium' }}
+                                lineWidth={0}
 
-                                    containerStyle={{ width: width * .22, paddingHorizontal: 5, bottom: 10 }}
-                                />
-                            </View>
+                                containerStyle={{ width: 100, paddingHorizontal: 5, bottom: 10, height: 80, justifyContent: 'center', backgroundColor: Colors.bg }}
+                            />
 
                         </View>
 
@@ -348,22 +346,17 @@ const styles = StyleSheet.create({
         textAlign: 'center'
     },
     LoginBtn: {
-        marginVertical: 5,
         borderRadius: 5,
-        marginHorizontal: 20,
-        marginTop: 0,
-        width: '90%',
+        marginTop: 20,
         zIndex: 0
 
     },
     Card: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        width: '90%',
-        marginStart: 20,
-        marginVertical: 15,
+        marginHorizontal: '5%',
+        marginVertical: 10,
         shadowColor: Colors.bg,
-        marginTop: 0,
         backgroundColor: Colors.bg,
         shadowOpacity: 0.25,
         shadowRadius: 3.84,

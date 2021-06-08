@@ -127,7 +127,7 @@ function TransferMony({ navigation, route }) {
                     placeholder={i18n.t("AccountUser")}
                     value={accountNAme}
                     onChangeText={(e) => setAcoountname(e)}
-                    styleCont={{ marginTop: 10 }}
+                    styleCont={{ marginTop: 20 }}
                     inputStyle={{ borderRadius: 25 }}
 
                 />
@@ -137,7 +137,7 @@ function TransferMony({ navigation, route }) {
                     placeholder={i18n.t("Accnum")}
                     value={accountnum}
                     onChangeText={(e) => setAccountnum(e)}
-                    styleCont={{ marginTop: 10 }}
+                    styleCont={{ marginTop: 20 }}
                     inputStyle={{ borderRadius: 25 }}
 
 
@@ -147,14 +147,14 @@ function TransferMony({ navigation, route }) {
                     placeholder={i18n.t("moneyPaied")}
                     value={money}
                     onChangeText={(e) => setMoney(e)}
-                    styleCont={{ marginTop: 10 }}
+                    styleCont={{ marginTop: 20 }}
                     inputStyle={{ borderRadius: 25 }}
                     keyboardType='numeric'
 
                 />
 
                 <Loading loading={spinner}>
-                    <BTN title={i18n.t("send")} onPress={SubmitHandler} ContainerStyle={{ marginVertical: width * .1, borderRadius: 10 }} TextStyle={{ fontSize: width * .04, }} />
+                    <BTN title={i18n.t("send")} onPress={SubmitHandler} ContainerStyle={{ borderRadius: 10 }} />
                 </Loading>
 
             </ScrollView>

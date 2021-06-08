@@ -122,7 +122,6 @@ function HomePage({ navigation }) {
             <HomeHeader navigation={navigation} image={user.avatar} label={i18n.t('Hello') + user.name + '!'} title={i18n.t('Dash')} onPress={() => navigation.navigate('MyProfile')} />
 
             <Container loading={spinner} >
-
                 <Card />
 
                 <Text style={[styles.MainText, { marginBottom: 5 }]}>{i18n.t('newProduct')}</Text>
@@ -185,14 +184,14 @@ function HomePage({ navigation }) {
                                 <Animatable.View animation="fadeInUp" easing="ease-out" delay={500} key={quick.id.toString()}>
 
                                     <View style={styles.SCard}>
-                                        <View style={{ flexDirection: 'row', height: '100%', }}>
+                                        <View style={{ flexDirection: 'row', }}>
                                             <View style={styles.ImgWrab}>
                                                 <Image source={quick.image} style={styles.SImg} resizeMode='contain' />
                                             </View>
                                             <View style={{ flexDirection: 'row', justifyContent: 'space-between', flex: 1 }}>
                                                 <View style={styles.WrabText}>
                                                     <Text style={styles.ProdText}>{quick.name}</Text>
-                                                    <Text style={[styles.ProdText, { color: Colors.fontNormal }]}>{quick.title}</Text>
+                                                    <Text style={[styles.ProdText, { color: Colors.fontNormal, fontFamily: 'flatLight' }]}>{quick.title}</Text>
                                                 </View>
                                             </View>
                                             <Text style={styles.num}>{quick.price}</Text>
@@ -235,16 +234,15 @@ const styles = StyleSheet.create({
         fontFamily: 'flatMedium',
     },
     SCard: {
-        height: height * .15,
-        width: '90%',
-        margin: 20,
+        marginHorizontal: '5%',
         shadowColor: Colors.bg,
         backgroundColor: Colors.bg,
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
         elevation: 1,
         overflow: 'hidden',
-        marginTop: -5
+        flex: 1,
+        marginBottom: 10
 
     },
     MainText: {
@@ -256,8 +254,8 @@ const styles = StyleSheet.create({
 
     },
     ImgWrab: {
-        height: '100%',
-        width: 90,
+        height: 100,
+        width: 120,
         backgroundColor: '#AAEFFC',
         justifyContent: 'center',
         alignItems: 'center'
@@ -299,7 +297,7 @@ const styles = StyleSheet.create({
     Card: {
         margin: 10,
         borderRadius: 20,
-        width: width * .45,
+        width: 160,
         backgroundColor: Colors.bg,
         borderTopStartRadius: 0,
         overflow: 'hidden',
@@ -311,8 +309,8 @@ const styles = StyleSheet.create({
         marginStart: 15
     },
     SImg: {
-        height: '50%',
-        width: '50%',
+        height: 80,
+        width: 50,
         alignSelf: 'center'
     }
 })

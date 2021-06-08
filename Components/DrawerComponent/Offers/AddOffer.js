@@ -198,7 +198,7 @@ const styles = StyleSheet.create({
         marginHorizontal: 0,
         width: '80%',
         backgroundColor: '#ECECEC',
-        marginBottom: 25
+        marginBottom: 30
 
     },
     Card: {
@@ -237,10 +237,8 @@ const styles = StyleSheet.create({
     },
 
     LoginBtn1: {
-        marginVertical: 15,
         borderRadius: 5,
-        marginHorizontal: 15,
-        width: '91%',
+
     },
 })
 

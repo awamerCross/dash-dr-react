@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import {
-    View, StyleSheet, Text, Keyboard,
+    View, StyleSheet, Text, Keyboard, ScrollView
 } from 'react-native'
 import { InputIcon } from '../../common/InputText'
 import BackBtn from '../../common/BackBtn'
@@ -47,7 +47,7 @@ function PhoneCheck({ navigation }) {
         }
     }
     return (
-        <View style={{ backgroundColor: Colors.bg, flex: 1 }}>
+        <ScrollView style={{ backgroundColor: Colors.bg, flex: 1 }}>
             <BackBtn navigation={navigation} />
 
             <View style={{ margin: 20, }}>
@@ -71,7 +71,7 @@ function PhoneCheck({ navigation }) {
 
             </Loading>
 
-        </View>
+        </ScrollView>
 
 
     )
@@ -97,10 +97,8 @@ const styles = StyleSheet.create({
     },
 
     LoginBtn: {
-        marginVertical: 5,
         borderRadius: 5,
-        marginHorizontal: 20,
-        width: '90%',
+
     }
 })
 

@@ -225,19 +225,16 @@ const styles = StyleSheet.create({
 
     },
     LoginBtn: {
-        marginVertical: 5,
         borderRadius: 15,
-        marginHorizontal: 20,
-        width: '90%',
     },
     Prepration: {
         fontFamily: 'flatMedium',
         color: Colors.IconBlack,
         marginHorizontal: '5%',
-        alignSelf: 'flex-start'
+        alignSelf: 'flex-start',
+        marginTop: 20
     },
     Radion: {
-        height: width * .14,
         marginHorizontal: '5%',
         borderColor: Colors.InputColor,
         borderWidth: .9,
@@ -246,7 +243,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'space-between',
         paddingHorizontal: 15,
-        marginTop: 10
+        marginTop: 10,
+        padding: 10
     },
     Franch: {
         color: Colors.inputTextMainColor,

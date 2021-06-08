@@ -107,7 +107,7 @@ function Login({ navigation }) {
                 finalStatus = status;
             }
             if (finalStatus !== 'granted') {
-                alert('Failed to get push token for push notification!');
+                // alert('Failed to get push token for push notification!');
                 return;
             }
             token = (await Notifications.getExpoPushTokenAsync()).data;
@@ -157,7 +157,8 @@ function Login({ navigation }) {
                     onChangeText={(e) => setPhone(e)}
                     value={phone}
                     styleCont={{ marginTop: 20 }}
-                    keyboardType='numeric' />
+                    keyboardType='numeric'
+                />
 
 
                 <InputPassword
@@ -167,7 +168,7 @@ function Login({ navigation }) {
                     secureTextEntry={!showPass}
                     image={require('../../assets/Images/view.png')}
                     onPress={() => setShowPass(!showPass)}
-                    styleCont={{ marginTop: 0 }}
+                    styleCont={{ marginTop: 20 }}
                 />
 
                 <View style={{ alignItems: 'flex-start' }}>
