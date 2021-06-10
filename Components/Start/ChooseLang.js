@@ -13,17 +13,14 @@ function ChooseLang({ navigation }) {
 
     const changeLang = async (lang, direction) => {
         await dispatch(changeLanguage(lang, direction,));
-
     };
 
     useEffect(() => {
-
         AsyncStorage.getItem("lang").then((lang) => {
             if (lang) {
                 navigation.navigate("Home");
             }
         })
-
     }, [])
 
     return (

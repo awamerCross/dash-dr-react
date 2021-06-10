@@ -91,15 +91,16 @@ const ProductDet = ({ navigation, route }) => {
                                         <Text style={styles.Val} > {ProductDetA.name} </Text>
                                     </View>
 
-                                    <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginTop: 20 }}>
+                                    <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: 20 }}>
                                         <Text style={styles.num}> {i18n.t('available')}</Text>
                                         <View >
-                                            <Image source={ProductDetA.available == 0 ? i18n.t('noAvailable') : i18n.t('Available')} style={styles.BImg} resizeMode='contain' />
+                                            <Text style={styles.Val} > {ProductDetA.available == 0 ? i18n.t('noAvailable') : i18n.t('Available')} </Text>
+
                                         </View>
                                     </View>
 
 
-                                    <View style={{ flexDirection: 'row', alignItems: 'center', }}>
+                                    <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: 20 }}>
                                         <Text style={styles.num}> {i18n.t('menue')} :  </Text>
                                         <Text style={styles.Val} > {ProductDetA.menu} </Text>
                                     </View>

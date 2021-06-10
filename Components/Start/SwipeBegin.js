@@ -109,15 +109,15 @@ const styles = StyleSheet.create({
     },
     container: {
         position: 'absolute',
-        bottom: 130
+        bottom: 100
     },
     ImgsSlide: {
         width,
-        height
+        height: '100%'
     },
     title: {
         textAlign: 'center',
-        fontSize: 16,
+        fontSize: 14,
         fontFamily: 'flatMedium',
         color: Colors.fontBold
     },

@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         borderRadius: 5,
-        padding: 15,
+        padding: 10,
     },
     sText: {
         fontFamily: 'flatMedium',
